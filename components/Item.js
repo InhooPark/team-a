@@ -130,8 +130,10 @@ const Item = ({ obj, dataGet }) => {
               <div className={styles.profile_img}>
                 <img src={`/img/poke_profile_img/pokballpixel-${owner.pro_img}.png`}></img>
               </div>
-              <p className={styles.user}>{owner.name}</p>
-              <p className={styles.date}> {contentlist ? dateAll : dateFollow}</p>
+              <div>
+                <p className={styles.user}>{owner.name}</p>
+                <p className={styles.date}> {contentlist ? dateAll : dateFollow}</p>
+              </div>
             </div>
             <div className={styles.info_mod_wrap} onClick={infoModModal}>
               <svg width="4" height="20.5" viewBox="0 0 8 41" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1,6 +1,18 @@
 $header-height: 150px;
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+  from {
+    transform: rotate(0);
+  }
+}
+.blur {
+  filter: blur(3px);
+}
 
 .header {
+  width: 1400px;
   margin: 0 auto;
   height: $header-height;
   display: flex;
@@ -86,6 +98,7 @@ $header-height: 150px;
 
 .layout_main {
   width: 1400px;
+  margin: 0 auto;
   height: calc(100vh - $header-height);
   position: relative;
   transform: rotate(0);
@@ -135,9 +148,6 @@ $header-height: 150px;
         }
       }
       .nav_write_btn {
-        svg {
-          margin: 10px 20px 10px 0px;
-        }
         margin: 80px 0 0 8px;
         background-color: #e26262;
         width: 220px;
@@ -280,15 +290,120 @@ $header-height: 150px;
     }
   }
 }
-@keyframes rotate {
-  to {
-    transform: rotate(360deg);
+
+@media screen and (max-width: 1400px) {
+  .header {
+    width: 1000px;
+    .status {
+      border-right: 1px solid rgba(224, 102, 102, 0.4);
+    }
+    .search {
+      display: none;
+    }
   }
-  from {
-    transform: rotate(0);
+
+  .layout_main {
+    width: 1000px;
+    .profile_container {
+      display: none;
+    }
   }
 }
 
-.blur {
-  filter: blur(3px);
+// 850 까지 로고 살려놨다가 날림
+@media screen and (max-width: 1000px) {
+  .header {
+    width: 100vw;
+    .logo_btn {
+      flex-grow: 1;
+      .logo_btn_wrap {
+        width: 10vw;
+        height: 10vw;
+        margin-left: 3vw;
+      }
+    }
+    .status {
+      width: 700px;
+      flex-shrink: 0;
+      .margin_dummy {
+        width: 100px;
+      }
+      .status_arrow_container {
+        width: 100px;
+        height: 150px;
+      }
+    }
+  }
+
+  .layout_main {
+    width: 100vw;
+    margin: 0 auto;
+    height: calc(100vh - $header-height);
+    position: relative;
+    transform: rotate(0);
+    display: flex;
+    // 이부분은 모바일 ui 만들고 작업
+    .nav_container {
+      flex-grow: 1;
+      position: relative;
+      .nav_btn_wrap {
+        width: 100px;
+        min-width: 68px;
+        .nav_trend_btn {
+          transform: translateX(-5px);
+          span {
+            transform: translateX(-5px);
+          }
+        }
+        .nav_write_btn {
+          width: 8vw;
+        }
+      }
+    }
+    // 모바일 ui 만들고 작업
+    .main_content_inner {
+      left: 0;
+      flex-shrink: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    max-width: 700px;
+    height: 100px;
+    .logo_btn {
+      display: none;
+    }
+    .status {
+      max-width: 700px;
+      border-left: 1px solid rgba(224, 102, 102, 0.4);
+      font-size: 4vw;
+      .margin_dummy {
+        display: none;
+      }
+      .status_arrow_container {
+        display: none;
+      }
+      .status_title {
+        font-size: 6vw;
+        margin-left: 6vw;
+      }
+    }
+  }
+
+  .layout_main {
+    max-width: 700px;
+    height: calc(100vh - 100px);
+    &::before {
+      display: none;
+    }
+    .nav_container {
+      display: none;
+    }
+    .main_content_inner {
+      max-width: 700px;
+      border-left: 1px solid rgba(224, 102, 102, 0.4);
+    }
+  }
 }

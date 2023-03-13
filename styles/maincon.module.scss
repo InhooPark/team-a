@@ -652,3 +652,640 @@ $height: 150px;
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .myprofile {
+    width: 100%;
+    height: 100%;
+    // border가 없으면 왜 밀릴까?
+    border: 1px solid transparent;
+    transform: rotate(0);
+    .profile_img_wrap {
+      width: 100%;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      margin: 50px 0;
+
+      &::before {
+        content: "";
+        width: 110px;
+        height: 110px;
+        background-color: rgba(224, 102, 102, 0.2);
+        border-radius: 50%;
+      }
+      img {
+        height: 80%;
+        object-fit: cover;
+        position: absolute;
+      }
+      .profile_img_mod {
+        width: 25px;
+        height: 25px;
+        background-color: rgba(255, 251, 239, 0.7);
+        border: 1px solid rgba(224, 102, 102, 0.7);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: -5px;
+        right: calc(50% - 55px);
+        cursor: pointer;
+        img {
+          width: 60%;
+          height: 60%;
+          object-fit: cover;
+        }
+      }
+      .img_toggle {
+        width: 350px;
+        height: 230px;
+        background: rgba(0, 0, 0, 0.4);
+        border-radius: 20px;
+        position: absolute;
+        z-index: 100;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        display: none;
+        &.on {
+          display: block;
+        }
+        .img_mod_toggle_exit {
+          width: 30px;
+          height: 30px;
+          cursor: pointer;
+          > img {
+            width: 25px;
+            height: 25px;
+            padding: 5px 0 0 5px;
+            object-fit: cover;
+          }
+        }
+        .img_mod_list {
+          width: 350px;
+          height: 200px;
+          // border: 1px solid blue;
+          display: flex;
+          justify-content: space-around;
+          flex-wrap: wrap;
+          .img_mod_img_wrap {
+            width: 45px;
+            height: 45px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            > img {
+              width: 30px;
+              height: 30px;
+              object-fit: cover;
+            }
+          }
+        }
+      }
+    }
+    .profile_info_wrap {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      > div {
+        margin: 10px 0;
+      }
+      .profile_info_name {
+        font-size: 2.5rem;
+        position: relative;
+        font-family: NanumSquareRoundBold;
+        .profile_name_mod {
+          width: 25px;
+          height: 25px;
+          background-color: rgba(255, 251, 239, 0.7);
+          border: 1px solid rgba(224, 102, 102, 0.5);
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          top: 50%;
+          right: -50%;
+          transform: translate(-50%, -50%);
+          cursor: pointer;
+          img {
+            width: 60%;
+            height: 60%;
+            object-fit: cover;
+          }
+        }
+      }
+      .profile_info_email {
+        color: #888888;
+      }
+      .profile_name_mod_toggle {
+        width: 100%;
+        display: none;
+        position: absolute;
+        top: 50%;
+        &.on {
+          display: block;
+        }
+        form {
+          width: 300px;
+          height: 100px;
+          background-color: rgba(224, 102, 102, 0.4);
+          border-radius: 40px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          p {
+            width: 80%;
+            margin: 5px auto;
+            input {
+              width: 100%;
+            }
+            &:nth-child(1) {
+              input {
+                height: 30px;
+                border: 1px solid #e36e6e;
+                background: rgba(227, 110, 110, 0.7);
+                border-radius: 15px;
+                padding: 0 15px;
+                &::placeholder {
+                  color: black;
+                  text-align: center;
+                }
+              }
+            }
+            &:nth-child(2) {
+              display: flex;
+              flex-direction: row;
+              justify-content: flex-end;
+              align-items: center;
+              input {
+                width: 60px;
+                height: 30px;
+                border: 1px solid #e36e6e;
+                border-radius: 15px;
+                background-color: transparent;
+                padding: 0 15px;
+                margin-left: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .profile_last_btn_wrap {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 50px;
+      > button {
+        width: 100px;
+        height: 40px;
+        border: 1px solid #e36e6e;
+        border-radius: 20px;
+        outline: none;
+        padding: 0 20px;
+        margin: 5px;
+        background-color: transparent;
+        color: #e36e6e;
+        cursor: pointer;
+
+        &:nth-child(2) {
+          margin-right: 10px;
+        }
+      }
+      .delete_modal {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        backdrop-filter: blur(3px);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        &.on {
+          display: flex;
+        }
+        .delete_modal_contents {
+          width: 400px;
+          height: 250px;
+          border: 1px solid #e36e6e;
+          border-radius: 50px;
+          background-color: rgba(255, 251, 239, 0.85);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          > p {
+            color: #e36e6e;
+            margin: 40px;
+          }
+          .delete_modal_btn_wrap {
+            button {
+              width: 100px;
+              height: 40px;
+              border: 1px solid #e36e6e;
+              border-radius: 20px;
+              outline: none;
+              padding: 0 20px;
+              margin: 10px;
+              color: #e36e6e;
+              background-color: transparent;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+  .myprofile_load {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .user_list {
+    border-bottom: 1px solid rgba(224, 102, 102, 0.5);
+    display: flex;
+    align-items: center;
+    .user_list_pro_img {
+      margin: 10px;
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    .user_list_info {
+      display: flex;
+      flex-direction: column;
+      .user_list_name {
+        font-size: 1.2em;
+        line-height: 1.5;
+      }
+      .user_list_email {
+        font-size: 0.8em;
+        line-height: 1.5;
+        color: gray;
+      }
+    }
+    .user_list_follow {
+      position: absolute;
+      right: 10px;
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      img {
+        width: 70%;
+        object-fit: cover;
+      }
+    }
+  }
+  .follow_modal {
+    width: 400px;
+    height: 250px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #e36e6e;
+    border-radius: 50px;
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &.on {
+      display: flex;
+    }
+    > p {
+      color: #e36e6e;
+      margin: 40px;
+    }
+    .follow_modal_btn_wrap {
+      button {
+        width: 100px;
+        height: 40px;
+        border: 1px solid #e36e6e;
+        border-radius: 20px;
+        padding: 0 20px;
+        margin: 5px;
+        background-color: transparent;
+        outline: none;
+        color: #e36e6e;
+        cursor: pointer;
+      }
+    }
+  }
+  .follow_list {
+    width: 100%;
+    border-bottom: 1px solid rgba(224, 102, 102, 0.5);
+    display: flex;
+    align-items: center;
+    .follow_list_pro_img {
+      margin: 10px;
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    .follow_list_info {
+      display: flex;
+      flex-direction: column;
+      .follow_list_name {
+        font-size: 1.2em;
+        line-height: 1.5;
+      }
+      .follow_list_email {
+        font-size: 0.8em;
+        line-height: 1.5;
+        color: gray;
+      }
+    }
+    .follow_list_heart {
+      position: absolute;
+      right: 10px;
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      img {
+        width: 70%;
+        object-fit: cover;
+      }
+    }
+  }
+  .follow_load {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .encyclopedia_container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    transform: rotate(0);
+    .poke_card {
+      width: 25%;
+      padding: 2%;
+      border-right: 1px dashed #e36e6e;
+      border-bottom: 1px dashed #e36e6e;
+
+      &:nth-child(-n + 5) {
+        border-top: 0;
+      }
+      &:nth-child(4n-3) {
+        border-left: none;
+      }
+      &:nth-child(4n) {
+        border-right: none;
+      }
+      &:nth-last-child(-n + 3) {
+        border-bottom: none;
+      }
+
+      .card_img_wrap {
+        img {
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      .card_info_wrap {
+        width: 100%;
+        p {
+          text-align: center;
+          margin: 3px 0;
+        }
+        .info_btn_wrap {
+          display: flex;
+          justify-content: space-around;
+          button {
+            padding: 5px;
+            margin-top: 5px;
+            border: 1px solid #e36e6e;
+            border-radius: 5px;
+            background-color: transparent;
+            transition: 150ms;
+            outline: none;
+            cursor: pointer;
+            &:hover {
+              background-color: #e36e6e;
+            }
+          }
+        }
+      }
+    }
+    .have {
+      text-align: center;
+      .card_img_wrap {
+        img {
+          filter: grayscale(1);
+        }
+      }
+    }
+
+    .sticky_tray {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      display: none;
+      &.on {
+        display: block;
+      }
+      .encyclopedia_modal {
+        position: sticky;
+        width: 100%;
+        height: calc(100vh - $height);
+        top: 0;
+        backdrop-filter: blur(5px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .modal_wrap {
+          width: 400px;
+          padding: 30px 0;
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: column;
+          align-items: center;
+          border: 1px solid #e36e6e;
+          border-radius: 50px;
+          background-color: #fffbef;
+          .modal_wrap_first {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            text-align: center;
+            height: auto;
+            p {
+              &:nth-of-type(1) {
+                font-size: 3rem;
+              }
+            }
+          }
+          .modal_wrap_second {
+            padding: 0;
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            padding: 0 20px;
+            > p {
+              width: 150px;
+              height: auto;
+              img {
+                width: 100%;
+              }
+            }
+            .modal_detail_wrap {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              > div {
+                line-height: 30px;
+                &:nth-of-type(1) {
+                  padding-right: 20px;
+                  p {
+                    text-align: right;
+                  }
+                }
+                &:nth-of-type(2) {
+                  p {
+                    text-align: right;
+                  }
+                }
+              }
+            }
+          }
+          .modal_wrap_third {
+            > p {
+              margin: 10px 0;
+            }
+            .btn {
+              display: flex;
+              justify-content: space-between;
+              button {
+                // border: 1px solid #e36e6e;
+                border: none;
+                // outline: none;
+                background-color: transparent;
+                padding: 8px 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .encyclopedia_load {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .tuto_first {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    > p {
+      font-size: 1.5rem;
+      color: #e36e6e;
+      line-height: 4;
+    }
+    .tuto_wrap {
+      display: flex;
+      .tuto_img_wrap {
+        width: 30%;
+        margin: 20px;
+        padding: 20px;
+        background-color: #e36e6e44;
+        border-radius: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        img {
+          width: 100%;
+          object-fit: cover;
+        }
+        figcaption {
+          margin-top: 20px;
+          font-size: 1em;
+        }
+      }
+    }
+  }
+  .tuto_second {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    > p {
+      margin-bottom: 30px;
+      font-family: NanumSquareRoundBold;
+      font-size: 1.5em;
+    }
+    .tuto_second_form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-bottom: 100px;
+      > p {
+        input {
+          width: 200px;
+          height: 40px;
+          border: 1px solid #e36e6e;
+          border-radius: 20px;
+          background-color: transparent;
+          color: #e36e6e;
+          padding: 0 20px;
+          margin: 20px 0;
+          &::placeholder {
+            color: #e36e6e;
+          }
+        }
+        button {
+          width: 80px;
+          height: 40px;
+          border: 1px solid #e36e6e;
+          border-radius: 20px;
+          padding: 0 20px;
+          background-color: #e36e6e;
+          color: #fffbef;
+        }
+      }
+    }
+  }
+}

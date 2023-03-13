@@ -1,6 +1,17 @@
 $bgc: #fffbef;
 $mC: #e0666666;
 
+.load {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.blur {
+  filter: blur(3px);
+}
+
 .listBox {
   max-width: 700px;
   position: relative;
@@ -14,7 +25,7 @@ $mC: #e0666666;
     background-color: #fffbef;
     top: 0;
     z-index: 100;
-    
+
     button {
       width: 100px;
       border: none;
@@ -67,15 +78,17 @@ $mC: #e0666666;
               object-fit: cover;
             }
           }
-          .user {
-            font-size: 28px;
-            padding: 0 20px;
-            color: #846868;
-            font-weight: bold;
-          }
-          .date {
-            font-size: 24px;
-            color: #e0666666;
+          > div {
+            .user {
+              font-size: 28px;
+              padding: 0 20px;
+              color: #846868;
+              font-weight: bold;
+            }
+            .date {
+              font-size: 24px;
+              color: #e0666666;
+            }
           }
         }
 
@@ -88,7 +101,10 @@ $mC: #e0666666;
           margin: 0;
           cursor: pointer;
           position: relative;
-
+          svg {
+            width: 100%;
+            height: 40%;
+          }
           .info_mod_btn_wrap {
             position: absolute;
             width: 100px;
@@ -129,7 +145,7 @@ $mC: #e0666666;
           background-size: 33px;
           background-repeat: no-repeat;
           border: none;
-          transform: translate(-2px,-8px);
+          transform: translate(-2px, -8px);
         }
         .fillheart {
           width: 36px;
@@ -139,21 +155,43 @@ $mC: #e0666666;
           background-size: 33px;
           background-repeat: no-repeat;
           border: none;
-          transform: translate(-2px,-8px);
+          transform: translate(-2px, -8px);
         }
       }
     }
   }
 }
 
-.load {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.blur {
-  filter: blur(3px);
+@media screen and (max-width: 768px) {
+  .listBox {
+    width: 100vw;
+    ul {
+      .detail_list {
+        .profileInfo {
+          .profile_info_wrap {
+            .profile_img {
+              width: 8vw;
+              min-width: 40px;
+              height: 8vw;
+              min-height: 40px;
+            }
+            > div {
+              display: flex;
+              flex-direction: column;
+              .user {
+                font-size: 4vw;
+              }
+              .date {
+                font-size: 3.5vw;
+                padding: 0 20px;
+              }
+            }
+          }
+        }
+        .detail {
+          font-size: 4vw;
+        }
+      }
+    }
+  }
 }
