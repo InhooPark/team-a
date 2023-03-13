@@ -72,10 +72,10 @@ async function handler(req, res) {
 
   switch (method) {
     case "GET":
-      dataGet();
+      await dataGet();
       break;
     case "PUT":
-      dataPut();
+      await dataPut();
       break;
     default:
       return;

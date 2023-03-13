@@ -19,7 +19,7 @@ const ColorTheme = ({ children }) => {
     }
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     colorset();
   }, [pokedata]);
 

@@ -52,6 +52,9 @@ async function handler(req, res) {
     }
     // 신규유저가 아닐때의 처리
     else {
+      console.log("aa");
+      console.log(body);
+
       try {
         const userUpdate = await prisma.user_table.update({
           where: { id: body.id },

@@ -98,25 +98,25 @@ const Item = ({ obj, dataGet }) => {
     setInfoMod(!infoMod);
   };
 
-  const heart = () => {
+  const heart = async () => {
     if (favoritelist.includes(session.user.id.toString())) {
       // 좋아요 취소
       const result = favoritelist.filter((obj) => obj !== session.user.id.toString());
-      axios.put("api/like", { type: "down", id: obj.id, data: result });
+      await axios.put("api/like", { type: "down", id: obj.id, data: result });
     } else {
       // 좋아요
       favoritelist.push(session.user.id.toString());
       const result = favoritelist.filter((obj) => obj !== "" && obj !== undefined && obj !== null);
-      axios.put("/api/like", { type: "up", id: obj.id, data: result });
+      await axios.put("/api/like", { type: "up", id: obj.id, data: result });
     }
     // re-render 발생시켜야 하는데?
     getFavoriteList();
   };
-  useLayoutEffect(() => {
+  useEffect(() => {
     getFollowList();
     getFavoriteList();
   }, []);
-  useLayoutEffect(() => {
+  useEffect(() => {
     getContentOwner();
   }, [data]);
 

@@ -46,10 +46,10 @@ async function handler(req, res) {
 
   switch (method) {
     case "GET":
-      getData();
+      await getData();
       break;
     case "POST":
-      postData();
+      await postData();
       break;
     default:
       return;

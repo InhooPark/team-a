@@ -79,3 +79,94 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  body{
+    #__next {
+      max-width: 768px;
+      width: 100%;
+    }
+  }
+  .sign_main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0 auto;
+    &::before {
+      content: "";
+      width: 100vh;
+      height: 100vh;
+      display: block;
+      background-color: #e36e6e;
+      border-radius: 50%;
+      filter: blur(150px);
+    }
+    .sign_form_box {
+      width: 500px;
+      height: 500px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transform: translate(-50%, -50%);
+      > p {
+        font-size: 3rem;
+        color: #fffbef;
+        margin-bottom: 20px;
+      }
+      form {
+        > p {
+          input {
+            width: 400px;
+            height: 80px;
+            border-radius: 40px;
+            border: 1px solid #fffbef;
+            background-color: transparent;
+            outline: none;
+            padding: 0 40px;
+            margin: 20px;
+            color: #fffbef;
+            &::placeholder {
+              color: #fffbef;
+              text-align: center;
+            }
+          }
+          > span {
+            display: block;
+            width: 100%;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+  
+  .sign_nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    z-index: 100;
+    button {
+      display: none;
+      width: 140px;
+      height: 50px;
+      margin: 30px;
+      border-radius: 25px;
+      border: 1px solid #e36e6e;
+      background-color: transparent;
+      color: #e36e6e;
+      &.on {
+        display: block;
+      }
+    }
+  }
+  
+}

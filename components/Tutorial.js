@@ -24,7 +24,6 @@ const Tutorial = () => {
       <>
         <article className={Style.tuto_first}>
           <p>스타팅 포켓몬을 선택해주세요</p>
-
           <div className={Style.tuto_wrap}>
             <figure className={Style.tuto_img_wrap} onClick={() => repsel(1)}>
               <img src="https://data1.pokemonkorea.co.kr/newdata/pokedex/full/000101.png"></img>

@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client";
 import { executeQuery } from "./db";
 const prisma = new PrismaClient();
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
   const { method, body, query } = req;
 
   const dataGet = async () => {
@@ -48,13 +48,13 @@ export default function handler(req, res) {
   };
   switch (method) {
     case "GET":
-      dataGet();
+      await dataGet();
       break; //데이터 조회
     case "POST":
-      dataCreate();
+      await dataCreate();
       break; //데이터 등록 및 전송
     case "PUT":
-      dataPut();
+      await dataPut();
       break;
     default:
       return;

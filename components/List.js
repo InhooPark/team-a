@@ -29,6 +29,9 @@ const List = () => {
   };
 
   const dataGet = () => {
+    // 이부분은 팔로우리스트를 뽑는게 중요한게 아니라 토글에 따라
+    // 전체글을 item으로 보낼지 follow목록에 있는 글만 보낼지 결정
+    // 그냥 개인적으로 헷갈려서 적어둠
     if (contentlist) {
       axios.get("/api/").then((res) => {
         setData(res.data);
@@ -50,24 +53,17 @@ const List = () => {
     }
   };
 
-  const setfollowlist = () => {
-    setContentlist(false);
-  };
-  const setlist = () => {
-    setContentlist(true);
-  };
-
-  useLayoutEffect(() => {
+  useEffect(() => {
     dataGet();
   }, [contentlist]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!contentlist) {
       getFollowList();
     }
   }, [arr]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (result.length) {
       result.sort((a, b) => {
         return b.id - a.id;
@@ -86,10 +82,10 @@ const List = () => {
     return (
       <div className={styles.listBox}>
         <div className={styles.list_btn_box}>
-          <button className={contentlist ? styles.on : ""} type="button" onClick={setlist}>
+          <button className={contentlist ? styles.on : ""} type="button" onClick={() => setContentlist(true)}>
             전체
           </button>
-          <button className={contentlist ? "" : styles.on} type="button" onClick={setfollowlist}>
+          <button className={contentlist ? "" : styles.on} type="button" onClick={() => setContentlist(false)}>
             팔로우
           </button>
         </div>
