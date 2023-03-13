@@ -3,7 +3,7 @@ const prisma = new PrismaClient();
 
 async function handler(req, res) {
   const { method, body, query } = req;
-
+  console.log("마이리스트")
   const getData = async () => {
     const mylist = await prisma.list_table.findMany({
       where: {

@@ -109,7 +109,6 @@ const Item = ({ obj, dataGet }) => {
       const result = favoritelist.filter((obj) => obj !== "" && obj !== undefined && obj !== null);
       axios.put("/api/like", { type: "up", id: obj.id, data: result });
     }
-
     // re-render 발생시켜야 하는데?
     getFavoriteList();
   };

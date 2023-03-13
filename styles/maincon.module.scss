@@ -536,13 +536,31 @@ $height: 150px;
             display: flex;
             justify-content: space-between;
             button {
-              // border: 1px solid #e36e6e;
+              display: inline-block;
+              cursor: pointer;
               border: none;
-              // outline: none;
               background-color: transparent;
-              padding: 8px 20px;
+              margin: 4px 10px;
+              padding: 4px 8px;
             }
           }
+        }
+      }
+      .pickup {
+        width: 400px;
+        padding: 30px 0;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid #e36e6e;
+        border-radius: 50px;
+        background-color: #fffbef;
+        button {
+          border: none;
+          cursor: pointer;
+          background-color: transparent;
+          padding: 4px 4px;
         }
       }
     }

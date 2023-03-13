@@ -12,8 +12,8 @@ const Followlist = () => {
 
   const getUsersData = async () => {
     let arr = [];
-    const pro1 = users.map(async (list, k) => {
-      await axios
+    const pro1 = users.map((list, k) => {
+      axios
         .get("/api/auth/who", {
           params: {
             id: list,
@@ -21,6 +21,7 @@ const Followlist = () => {
         })
         .then((res) => {
           arr[k] = res.data;
+          console.log(res)
         });
     });
     await Promise.all(pro1);
